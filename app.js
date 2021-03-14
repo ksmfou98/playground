@@ -3,14 +3,9 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import { userRouter } from "./router"; // 내가 export 를 default로 하지 않아서 { userRouter }이런식으로 불러와여댐
 
 const app = express();
-
-const PORT = 4000;
-
-const handleListening = () => {
-  console.log(`Listening on: http://localhost:${PORT}`);
-};
 
 const handleHome = (req, res) => {
   //req : 나에게 요청온거
@@ -30,4 +25,6 @@ app.use(morgan("dev")); // middleware 인 morgan 패키지
 app.get("/", handleHome); // "/" 페이지에 접근하면 handleHome 함수 실행
 app.get("/profile", handleProfile); // "/profile" 페이지에 접근하면 handleProfile 함수 실행
 
-app.listen(PORT, handleListening); //npm start 했을때 PORT 로 서버를 열고 handleListening 함수 실행
+app.use("/user", userRouter);
+
+export default app;
