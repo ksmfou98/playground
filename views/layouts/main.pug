@@ -4,13 +4,11 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title WeTube
+        title #{pageTitle} | #{siteName}
+        link(rel="stylesheet" ,href="https://use.fontawesome.com/releases/v5.15.2/css/all.css", integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu", crossorigin="anonymous")
     body 
 
-        header 
-            h1 WeTube 
-        
+        include ../partials/header
         main 
             block content
-        footer 
-            span &copy; Wetube
+        include ../partials/footer
