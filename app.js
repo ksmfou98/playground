@@ -12,13 +12,20 @@ import { localsMiddleware } from "./middlewares";
 const app = express();
 
 app.use(helmet()); // 보안을 위한 helmet 패키지
+app.use(function (req, res, next) {
+  res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self'https://archive.opg"
+  );
+  return next();
+});
 app.set("view engine", "pug");
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev")); // middleware 인 morgan 패키지
 
-app.use(localsMiddleware)
+app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
