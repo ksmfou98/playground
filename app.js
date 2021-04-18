@@ -12,14 +12,15 @@ import { localsMiddleware } from "./middlewares";
 const app = express();
 
 app.use(helmet()); // 보안을 위한 helmet 패키지
-app.use(function (req, res, next) {
-  res.setHeader(
-    "Content-Security-Policy",
-    "script-src 'self'https://archive.opg"
-  );
-  return next();
-});
+// app.use(function (req, res, next) {
+//   res.setHeader(
+//     "Content-Security-Policy",
+//     "script-src 'self'https://archive.org"
+//   );
+//   return next();
+// });
 app.set("view engine", "pug");
+app.use("/uploads", express.static("uploads"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
