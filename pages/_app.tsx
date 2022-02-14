@@ -4,6 +4,7 @@ import Head from "next/head";
 import Button from "components/Button";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import React from "react";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => new QueryClient());
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Button />
           <Component {...pageProps} />
         </Hydrate>
+        <ReactQueryDevtools />
       </QueryClientProvider>
     </>
   );
