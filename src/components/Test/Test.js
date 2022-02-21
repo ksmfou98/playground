@@ -12,10 +12,17 @@ export default class Test {
     this.render();
   }
 
+  onClick() {
+    console.log("Test");
+  }
+
   render() {
     this.$wrapper.innerHTML = `
         <h1>Test</h1>
-        <p>Test</p>
+        <p class="tt">Test</p>
     `;
+
+    this.tt = document.querySelector(".tt");
+    this.tt.addEventListener("click", this.onClick.bind(this));
   }
 }
