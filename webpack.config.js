@@ -32,11 +32,6 @@ const module = (env) => {
           ],
         },
         {
-          test: /\.scss$/,
-          use: ["style-loader", "css-loader", "sass-loader"],
-          exclude: /node_modules/,
-        },
-        {
           test: /\.js?$/,
           include: path.resolve("src"),
           use: {
@@ -73,7 +68,7 @@ const module = (env) => {
 
     devServer: {
       host: "localhost",
-      port: 8080,
+      port: 3000,
       open: true,
       historyApiFallback: true,
     },

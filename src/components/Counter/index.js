@@ -41,13 +41,9 @@ export default class Counter {
     $decreaseButton.className = "counter-button";
     $decreaseButton.innerHTML = "-";
 
-    $increaseButton.addEventListener("click", () => {
-      this.onIncrease();
-    });
+    $increaseButton.addEventListener("click", this.onIncrease.bind(this));
 
-    $decreaseButton.addEventListener("click", () => {
-      this.onDecrease();
-    });
+    $decreaseButton.addEventListener("click", this.onDecrease.bind(this));
 
     const $InnerCounter = document.createElement("div");
     $InnerCounter.innerHTML = `
