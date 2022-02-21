@@ -17,12 +17,12 @@ export default class Test {
   }
 
   render() {
-    this.$wrapper.innerHTML = `
-        <h1>Test</h1>
-        <p class="tt">Test</p>
-    `;
+    this.$wrapper.innerHTML = ``;
 
-    this.tt = document.querySelector(".tt");
-    this.tt.addEventListener("click", this.onClick.bind(this));
+    const $testButton = document.createElement("button");
+    $testButton.innerHTML = "Test";
+    $testButton.addEventListener("click", this.onClick.bind(this));
+
+    this.$wrapper.appendChild($testButton);
   }
 }
