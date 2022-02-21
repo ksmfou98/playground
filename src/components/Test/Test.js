@@ -1,3 +1,4 @@
+import Tutorial from "../Tutorial/index.js";
 import "./Test.css";
 
 export default class Test {
@@ -23,6 +24,7 @@ export default class Test {
     $testButton.innerHTML = "Test";
     $testButton.addEventListener("click", this.onClick.bind(this));
 
+    new Tutorial(this.$wrapper);
     this.$wrapper.appendChild($testButton);
   }
 }
